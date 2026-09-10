@@ -7,6 +7,12 @@ on:
     paths:
       - 'styles.less'  # Trigger only when styles.less changes
 
+# New repos give GITHUB_TOKEN read-only contents by default (the older
+# template repos predate that change). The compile step pushes styles.css
+# back to main, so it needs write.
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
