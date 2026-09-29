@@ -1457,8 +1457,8 @@ section {
   .sm-blog-rows .blog-excerpt {
     display: none!important;
   }
-  .sm-blog-rows .blog-title,
-  .sm-blog-rows .blog-title a {
+  .sm-blog-rows .blog-single-column--text .blog-title,
+  .sm-blog-rows .blog-single-column--text .blog-title a {
     font-size: 18px!important;
   }
   .blog-categories {
