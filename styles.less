@@ -199,6 +199,11 @@ padding-top:unset!important;}
 .header-title-text{
 margin-top:-6px!important;}
 
+/*Optically centre the wordmark in the pill (centres the capitals, not the line box)*/
+.header-title-text a{
+position:relative;
+top:.13em;}
+
 @media screen and (min-width:800px){ 
 /*Nav*/
 .tweak-fixed-header:not(.sqs-edit-mode-active):not(.sqs-site-styles-active) .header{
@@ -421,7 +426,13 @@ height:24px;
 width:24px;}
   
 .burger-inner.header-menu-icon-plus .top-bun, .burger-inner.header-menu-icon-plus .bottom-bun{
-width:24px;}}
+width:24px;}
+  
+/*Border: the white mobile background paints over the native header border, so lift it above and round it to the pill*/
+.header-border{
+border-radius:40px!important;
+z-index:3!important;
+pointer-events:none;}}
 
 
 
@@ -1253,7 +1264,40 @@ display:block!important;}
 .sm-blog-col{
 display:none!important;}
 .blog-single-column--container.blog-item{
---meta-gap:var(--meta-gap-mobile);}}
+--meta-gap:var(--meta-gap-mobile);}
+/*One line per row: title and category only*/
+.sm-blog-rows .blog-single-column--text{
+grid-template-areas:"title meta";}
+.sm-blog-rows .blog-excerpt{
+display:none!important;}
+.sm-blog-rows .blog-title,
+.sm-blog-rows .blog-title a{
+font-size:18px!important;}
+.blog-categories{
+font-size:11px!important;
+padding:6px 8px;}}
+
+/*No hover on touch screens*/
+@media (hover:none){
+.blog-single-column--container.blog-item:hover{
+background:transparent!important;}
+.blog-single-column--container.blog-item:hover .blog-title,
+.blog-single-column--container.blog-item:hover .blog-meta-section,
+.sm-blog-rows .blog-item:hover .blog-excerpt{
+transform:none!important;}
+.blog-single-column--container.blog-item:hover .blog-categories{
+background:var(--secondary-color)!important;}}
+
+/*Phones have no preview panel, so no active row either*/
+@media screen and (max-width:767px){
+.sm-blog-rows .blog-item.is-active{
+background:transparent!important;}
+.sm-blog-rows .blog-item.is-active .blog-title,
+.sm-blog-rows .blog-item.is-active .blog-excerpt,
+.sm-blog-rows .blog-item.is-active .blog-meta-section{
+transform:none!important;}
+.sm-blog-rows .blog-item.is-active .blog-categories{
+background:var(--secondary-color)!important;}}
 
 @media (prefers-reduced-motion: reduce){
 .sm-blog-layer,
