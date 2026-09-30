@@ -2230,6 +2230,9 @@ body.modal-lock {
 }
 /*Phones can't hover, so the name and role sit on the portrait, and a tap opens the full bio*/
 @media (hover: none) {
+  .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] {
+    /*Name sits right above the role: no padding between the two*/
+  }
   .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] .list-item-content {
     opacity: 1!important;
     transform: none!important;
@@ -2237,6 +2240,15 @@ body.modal-lock {
   }
   .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] .list-item-content__text-wrapper {
     justify-content: flex-end !important;
+  }
+  .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] .list-item-content__title {
+    padding-bottom: 0!important;
+  }
+  .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] .list-item-content__description {
+    padding-top: 8px!important;
+  }
+  .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] .list-item-content__description p {
+    margin: 0!important;
   }
   .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] .list-item-content__description p + p {
     display: none;
@@ -2247,8 +2259,15 @@ body.modal-lock {
   .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] li:hover .list-item-content__text-wrapper {
     justify-content: space-between !important;
   }
+  .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] li:hover .list-item-content__title {
+    padding-bottom: 6%!important;
+  }
+  .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] li:hover .list-item-content__description {
+    padding-top: 6%!important;
+  }
   .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] li:hover .list-item-content__description p + p {
     display: block;
+    margin-top: 1em!important;
   }
 }
 /*Most of the lightbox is set in Site Styles > Forms. These rules cover what those settings can't: the title size and the submit button, which sits on a white panel inside a dark section*/
