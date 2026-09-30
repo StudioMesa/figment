@@ -1266,9 +1266,6 @@ section {
 .list-item-media {
   position: relative;
 }
-.list-item-media img {
-  filter: grayscale(1);
-}
 .blog-single-column--wrapper {
   display: flex;
   flex-direction: column;
