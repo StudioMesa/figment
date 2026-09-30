@@ -1243,11 +1243,21 @@ section {
   top: 0!important;
 }
 /*Mobile: two across, so six people do not stack into one very long column*/
+/*Side padding matches the Fluid Engine inset, so photos and names line up with the headings above*/
 @media screen and (max-width: 767px) {
   [data-section-id="6ab5e692e7373d4e0298eeac"] .user-items-list-simple {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 40px 16px!important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
   }
+}
+/*Keep each number close to its caption, so it reads as one stat, not part of the next*/
+#team .sqs-html-content h2:has(+ p) {
+  margin-bottom: 10px!important;
+}
+#team .sqs-html-content h2 + p {
+  margin-top: 0!important;
 }
 .user-items-list-item-container.user-items-list-simple .list-item-media img {
   border-radius: var(--global-radius) !important;
@@ -1449,6 +1459,10 @@ section {
   }
   .blog-single-column--container.blog-item {
     --meta-gap: var(--meta-gap-mobile);
+  }
+  /*Wrap long titles evenly, without a lone word on the last line*/
+  .sm-blog-rows .blog-single-column--text .blog-title {
+    text-wrap: pretty;
   }
   /*One line per row: title and category only*/
   .sm-blog-rows .blog-single-column--text {
