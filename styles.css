@@ -283,17 +283,33 @@ section:first-child:not(.editmode-changing-rowcount) {
     margin: 0 auto;
   }
 }
+/*Nav centred in the pill: title and actions share the leftover width equally, so the title fills its half (a long or renamed site title stays on one line) and the links sit dead centre*/
 @media screen and (min-width: 767px) {
-  .header-layout-nav-center .header-title {
-    width: 17%!important;
-    flex: unset!important;
+  .header-layout-nav-center .header-title-nav-wrapper {
+    display: contents!important;
   }
-}
-.header-layout-nav-center .header-nav {
-  width: 100%!important;
-}
-.header-layout-nav-center .header-actions {
-  width: fit-content !important;
+  .header-layout-nav-center .header-display-desktop {
+    display: flex!important;
+    align-items: center!important;
+  }
+  .header-layout-nav-center .header-title,
+  .header-layout-nav-center .header-actions {
+    flex: 1 1 0!important;
+    width: auto!important;
+    min-width: 0!important;
+  }
+  .header-layout-nav-center .header-actions {
+    justify-content: flex-end !important;
+  }
+  .header-layout-nav-center .header-nav {
+    flex: 0 0 auto!important;
+    width: auto!important;
+  }
+  .header-layout-nav-center .header-title-text {
+    white-space: nowrap!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 .header-nav-list .header-nav-item {
   font-weight: var(--button-weight) !important;
@@ -1243,9 +1259,9 @@ section {
   top: 0!important;
 }
 /*Mobile: two across, so six people do not stack into one very long column*/
-/*Side padding matches the Fluid Engine inset, so photos and names line up with the headings above*/
+/*Scoped by list type, not section ID: Squarespace gives sections new IDs when a site is duplicated. Side padding matches the Fluid Engine inset, so photos and names line up with the headings above*/
 @media screen and (max-width: 767px) {
-  [data-section-id="6ab5e692e7373d4e0298eeac"] .user-items-list-simple {
+  .user-items-list-simple {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 40px 16px!important;
     padding-left: 25px !important;
@@ -2222,12 +2238,6 @@ body.modal-lock {
   grid-gap: 30px!important;
   gap: 30px!important;
 }
-/*On mobile the orange word starts on the same row as the list, so push it down four lines to sit on "Public wellness"*/
-@media screen and (max-width: 767px) {
-  .fe-block-d4d5502bd624ca34fb86 h2 {
-    padding-top: calc(4 * 1.15em) !important;
-  }
-}
 /*Phones can't hover, so the name and role sit on the portrait, and a tap opens the full bio*/
 @media (hover: none) {
   .user-items-list-carousel[data-current-context*='"mediaAspectRatio": "1:1"'] {
@@ -2368,16 +2378,16 @@ body.modal-lock {
     padding-right: 0!important;
   }
 }
-/*One column; 01 to 07 match the section eyebrows and Apply. Numbers sit small and raised, just before each item. Legal is hidden here*/
-#block-da14eeab7755e89c833d .sqsrte-large {
+/*One column; 01 to 07 match the section eyebrows and Apply. Numbers sit small and raised, just before each item. Legal is hidden here. Targets the footer paragraph that holds links, not a block ID: duplicated sites get new block IDs*/
+#footer-sections .sqsrte-large:has(a) {
   counter-reset: footer-nav;
 }
-#block-da14eeab7755e89c833d .sqsrte-large a {
+#footer-sections .sqsrte-large:has(a) a {
   position: relative;
   display: inline-block;
   padding-left: 1.15em;
 }
-#block-da14eeab7755e89c833d .sqsrte-large a:nth-of-type(-n+7):before {
+#footer-sections .sqsrte-large:has(a) a:nth-of-type(-n+7):before {
   counter-increment: footer-nav;
   content: counter(footer-nav, decimal-leading-zero);
   position: absolute;
@@ -2388,7 +2398,7 @@ body.modal-lock {
   color: var(--accent-bold);
   font-variant-numeric: tabular-nums;
 }
-#block-da14eeab7755e89c833d .sqsrte-large a[href="/legal"],
-#block-da14eeab7755e89c833d .sqsrte-large br:last-of-type {
+#footer-sections .sqsrte-large:has(a) a[href="/legal"],
+#footer-sections .sqsrte-large:has(a) br:last-of-type {
   display: none;
 }
