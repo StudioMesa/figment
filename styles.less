@@ -1917,14 +1917,26 @@ transform:none!important;
 background:linear-gradient(to top, var(--black) 0%, transparent 60%)!important;}
 .list-item-content__text-wrapper{
 justify-content:flex-end!important;}
+/*Name sits right above the role: no padding between the two*/
+.list-item-content__title{
+padding-bottom:0!important;}
+.list-item-content__description{
+padding-top:8px!important;}
+.list-item-content__description p{
+margin:0!important;}
 .list-item-content__description p+p{
 display:none;}
 li:hover .list-item-content{
 background:var(--black)!important;}
 li:hover .list-item-content__text-wrapper{
 justify-content:space-between!important;}
+li:hover .list-item-content__title{
+padding-bottom:6%!important;}
+li:hover .list-item-content__description{
+padding-top:6%!important;}
 li:hover .list-item-content__description p+p{
-display:block;}}}
+display:block;
+margin-top:1em!important;}}}
 
 
 //---LIGHTBOX FORM---//
