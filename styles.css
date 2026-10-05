@@ -935,6 +935,7 @@ section {
   /*Blog Post Top*/
   /*Make Content Blog Width*/
   /*Blog Title Wrap*/
+  /*Phones and tablets: the post column lines up with the nav pill, the same 6vw gutter every page section uses. The 700px cap alone left a 22px gutter at 744 wide and none at all on phones*/
   /*Category Meta*/
   /*Remove link from author item*/
   /*Author Name*/
@@ -998,6 +999,26 @@ section {
   max-width: var(--blog-width);
   margin-left: auto;
   margin-right: auto;
+}
+@media screen and (max-width: 767px) {
+  .tweak-blog-item-width-narrow {
+    /*Quote box sits inside the column; its padding insets the text*/
+  }
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper h2,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper h3,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper h4,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper p,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper li,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper ul,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper ol,
+  .tweak-blog-item-width-narrow blockquote,
+  .tweak-blog-item-width-narrow .blog-item-content-wrapper .sqs-block-horizontalrule,
+  .tweak-blog-item-width-narrow .blog-item-wrapper .blog-item-top-wrapper {
+    max-width: 88vw!important;
+  }
+  .tweak-blog-item-width-narrow blockquote {
+    box-sizing: border-box !important;
+  }
 }
 .tweak-blog-item-width-narrow .blog-meta-item.blog-meta-item--categories a {
   font-family: var(--inter), var(--body), sans-serif !important;
