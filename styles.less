@@ -821,6 +821,13 @@ margin-right: auto!important;}
 max-width:var(--blog-width);
 margin-left: auto;
 margin-right: auto;}
+
+/*Phones and tablets: the post column lines up with the nav pill, the same 6vw gutter every page section uses. The 700px cap alone left a 22px gutter at 744 wide and none at all on phones*/
+@media screen and (max-width:767px){
+.blog-item-content-wrapper h2, .blog-item-content-wrapper h3, .blog-item-content-wrapper h4, .blog-item-content-wrapper p, .blog-item-content-wrapper li, .blog-item-content-wrapper ul, .blog-item-content-wrapper ol, blockquote, .blog-item-content-wrapper .sqs-block-horizontalrule, .blog-item-wrapper .blog-item-top-wrapper{
+max-width:88vw!important;}
+/*Quote box sits inside the column; its padding insets the text*/
+blockquote{box-sizing:border-box!important;}}
  
 /*Category Meta*/
 .blog-meta-item.blog-meta-item--categories a{
