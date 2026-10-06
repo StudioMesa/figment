@@ -485,6 +485,25 @@ body:not(.header--menu-open) .header-nav-item--active > a:not(.header-nav-folder
     z-index: 3!important;
     pointer-events: none;
   }
+  /*Open menu: dim the page behind the dropdown card so it reads as a card on white pages too. Sits under the header (z-index 10)*/
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 36, 43, 0.45);
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  body.header--menu-open::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  .header--menu-open .header-menu {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+  }
 }
 /*Core Button Structure*/
 .sqs-block-button-element--small,
