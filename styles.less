@@ -443,7 +443,24 @@ width:24px;}
 .header-border{
 border-radius:40px!important;
 z-index:3!important;
-pointer-events:none;}}
+pointer-events:none;}
+
+/*Open menu: dim the page behind the dropdown card so it reads as a card on white pages too. Sits under the header (z-index 10)*/
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(13,36,43,.45);
+z-index:9;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+transition:opacity .4s ease, visibility .4s ease;}
+body.header--menu-open::after{
+opacity:1;
+visibility:visible;}
+.header--menu-open .header-menu{
+box-shadow:0 30px 60px rgba(0,0,0,.18);}}
 
 
 
